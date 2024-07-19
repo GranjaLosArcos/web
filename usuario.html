@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de usuario</title>
+    <
+    <link rel="stylesheet" href="usuario.css">
+    
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('fotos.img/caca.jpg') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        padding-top: 60px; /* Espacio para el header */
+        box-sizing: border-box;
+    }
+
+    header {
+        background-color: #4b5c54;
+        color: #fafafa;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav {
+        background-color: #4b5c54;
+        padding: 10px;
+        width: 100%;
+        position: fixed;
+        top: 50px; /* Ajuste para estar debajo del header */
+        z-index: 1000;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0 7px;
+    }
+
+    nav a {
+        color: #fafafa;
+        text-decoration: none;
+        padding: 2px;
+    }
+
+    nav a:hover {
+        background-color: #35403b;
+        border-radius: 5px;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        max-width: 1200px; /* Ancho máximo para el contenedor */
+        margin-top: 120px; /* Espacio para evitar solapamiento con la barra de navegación */
+    }
+
+    .panel {
+        flex: 1;
+        max-width: 300px;
+        margin-right: 20px;
+    }
+
+    .profile {
+        flex: 2;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+        background-color: rgba(213, 205, 204, 0.513);
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(15, 14, 14, 0.846);
+    }
+
+    .info {
+        display: none;
+        text-align: left;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    input[type="checkbox"]:checked + .info {
+        display: block;
+    }
+</style>
+<body>
+    <header>
+        <h1>Panel de Usuario</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="compraVenta.html">Foro Compra y Venta</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="panel">
+            <ul>
+                <li>
+                    <label for="dadosAlta">Dados de alta</label>
+                    <input type="checkbox" id="dadosAlta">
+                    <div class="info">Datos de alta de gallos.</div>
+                </li>
+                <li>
+                    <label for="dadosBaja">Dados de baja</label>
+                    <input type="checkbox" id="dadosBaja">
+                    <div class="info">Datos de baja de gallos.</div>
+                </li>
+                <li>
+                    <label for="vender">Vender</label>
+                    <input type="checkbox" id="vender">
+                    <div class="info">Opciones para vender.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="profile">
+            <h2>Perfil del Usuario</h2>
+            <p>Nombre:</p>
+            <br>
+            <p>Correo: </p>
+            <br>
+            <p>Compras: </p>
+            <br>
+            <p>Ventas: </p>
+            <!-- Información del perfil del usuario -->
+        </div>
+    </div>
+</body>
+</html>
