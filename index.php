@@ -1,10 +1,19 @@
+<?php
+session_start();
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granja los Arcos</title>
-    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -103,17 +112,15 @@
     </style>
 </head>
 <body>
+<?php
+require_once 'nav_function.php';  // Asegúrese de crear este archivo
+?>
     <header>
         <h1>Bienvenido a Granja los Arcos</h1>
         <img src="ima/logo.png" alt="Granja los Arcos Logo" class="logo">
     </header>
     <nav>
-        <ul>
-            <li><a href="catalogo.html">Nuestro Catálogo</a></li>
-            <li><a href="compraVenta.html">Foro Compra y Venta</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="inicioSesion.html">Iniciar Sesión</a></li>
-        </ul>
+    <?php echo generateNav(); ?>
     </nav>
     <main>
         <div class="content-wrapper">
