@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -126,6 +135,10 @@
     </style>
 </head>
 <body>
+<?php
+require_once 'nav_function.php';  // Asegúrese de crear este archivo
+echo generateNav();
+?>
     <header>
         <h1>Crear Nuevo Anuncio</h1>
     </header>
