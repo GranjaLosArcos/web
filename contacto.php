@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,16 +163,14 @@
     </style>
 </head>
 <body>
+<?php
+require_once 'nav_function.php';  // Asegúrese de crear este archivo
+?>
     <div class="header">
         <h2>Contactanos!!!</h2>
     </div>
     <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="compraVenta.html">Foro Compra y Venta</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="inicioSesion.html">Iniciar Sesión</a></li>
-        </ul>
+    <?php echo generateNav(); ?>
     </nav>
     <div class="main">
         <div class="contenedor">
