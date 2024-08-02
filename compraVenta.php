@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    session_unset();
+    session_destroy();
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -185,16 +194,14 @@
     </style>
 </head>
 <body>
+<?php
+require_once 'nav_function.php';  // Asegúrese de crear este archivo
+?>
     <header>
         <h1>Bienvenido al Foro Compra-Venta de Granja los Arcos</h1>
     </header>
     <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalogo.html">Nuestro Catalogo</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="inicioSesion.html">Iniciar</a></li>
-        </ul>
+    <?php echo generateNav(); ?>
     </nav>
     <main>
         <div class="content-wrapper">
